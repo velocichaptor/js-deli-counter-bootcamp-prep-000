@@ -1,21 +1,14 @@
-var katzDeli = [];
-
-function takeANumber(katzDeli, name) {
-  katzDeli.push(`${name}`);
-  return(`Welcome, ${name}. You are number ${katzDeli.length} in line.`);
+function takeANumber(katzDeliLine, name){
+    katzDeliLine.push(name);
+    return  `Welcome, ${name}. You are number ${katzDeliLine.length} in line.`;
 }
 
-
-function nowServing(katzDeli) {
-  let i = 0;
-  while (i < katzDeli.length) {
-    i++;
+function nowServing(katzDeliLine) {
+  if (katzDeliLine.length > 0) {
+    return "Currently serving " + katzDeliLine.shift() + ".";
+  } else {
+      return "There is nobody waiting to be served!";
   }
-  if (katzDeli.length === 0) {
-    return "There is nobody waiting to be served!";
-  }
-  else
-  return (`Currently serving ${katzDeli.shift()}.`);
 }
 
 function currentLine(katzDeliLine) {
@@ -30,4 +23,3 @@ function currentLine(katzDeliLine) {
     return "The line is currently empty.";
   }
 }
-
